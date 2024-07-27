@@ -1,0 +1,10 @@
+.app{
+  background-color: #1D1D1D;
+  padding: 40px;
+}
+
+@media screen and (max-width: 768px){
+  .app{
+    padding: 20px;
+  }
+}

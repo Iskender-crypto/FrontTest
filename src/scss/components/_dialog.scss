@@ -1,0 +1,119 @@
+  .p-dialog-mask{
+    overflow: hidden !important;
+    border-radius: 20px;
+  }
+.dialog{
+  backdrop-filter: blur(5px);
+  border: none !important;
+  background-color: rgba(38, 38, 38, 0.59) !important;
+  max-height: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  position: absolute !important;
+  box-shadow: none !important;
+  transition: 0.7s;
+  border-left: 1px solid #4D4D4D !important;
+  border-bottom-left-radius: 0px !important;
+  border-top-left-radius: 0px !important;
+  z-index: 1000;
+  &.inner-dialog{
+    height: fit-content !important;
+    left: auto !important;
+    right: 0 !important;
+    border-top: 1px solid #4D4D4D !important;
+    border-top-right-radius: 0px !important;
+    .p-dialog-header{
+      display: none;
+    }
+    .p-dialog-content{
+      padding-top: 20px;
+    }
+
+    .p-inputnumber-input{
+      background-color: transparent;
+      border: 1px solid #4D4D4D;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 16.94px;
+      color: #FFFFFF;
+
+      &:enabled:hover{
+        border-color: #807c7c;
+      }
+      &:enabled:focus{
+        border-color: #807c7c;
+      }
+      &::placeholder{
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 16.94px;
+        color: #FFFFFF;
+      }
+    }
+    .p-button-secondary{
+      font-family: 'SF Pro Display';
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 16.71px;
+      text-align: left;
+    }
+
+  }
+  &.my-inner-dialoag{
+    left: auto !important;
+    bottom: 0px !important;
+  }
+  .p-dialog-header-actions{
+    display: none;
+  }
+  .p-button-icon-only.p-button-rounded{
+    &:hover{
+      background-color: rgba(38, 38, 38, 0.59) !important;
+    }
+  }
+  .p-dialog-header{
+    backdrop-filter: blur(10px);
+    background-color: rgba(38, 38, 38, 0.59) !important;
+    padding: 10px;
+  }
+  .p-dialog-content {
+    height: 100%;
+    backdrop-filter: blur(10px);
+    background-color: rgba(38, 38, 38, 0.59) !important;
+  }
+    .p-button-danger{//styleName: Tg-Btn;
+      font-family: 'SF Pro Display';
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 16.71px;
+      text-align: left;
+    }
+  .dialog-block{
+    border-radius: 20px;
+    position: relative;
+    z-index: 100;
+    width: 100%;
+    height: 20%;
+    &__rectangle {
+      height: 80%;
+      width: 40%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-55%, -45%);
+      z-index: 1;
+    }
+
+    &__rectangle--glass {
+      height: 80%;
+      width: 40%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-45%, -55%);
+      background-color: rgba(56, 88, 100, 0.44);
+      backdrop-filter: blur(10px);
+      z-index: 2;
+    }
+  }
+}

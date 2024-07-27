@@ -1,0 +1,127 @@
+.card {
+  border-radius: 12px;
+  background-color: #262626;
+  padding: 19px;
+  border: 1px solid #4D4D4D;
+
+  &--hidden {
+    overflow: hidden;
+    position: relative;
+  }
+
+  .card__col {
+    width: 20%;
+    height: 20%;
+  }
+
+  .card__block {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    cursor: auto ;
+    &:hover {
+      background-color: #4D4D4D;
+      cursor: move ;
+    }
+    &:active{
+      opacity: 0;
+      cursor: pointer !important;
+    }
+  }
+  &__rectangle {
+    height: 60%;
+    max-width: 50%;
+    min-width: 40%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-55%, -45%);
+    z-index: 1;
+    cursor: url("../../../public/img/pointer.svg"), auto;
+  }
+
+  &__rectangle--glass {
+    height: 60%;
+    max-width: 50%;
+    min-width: 40%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-45%, -55%);
+    background-color: rgba(56, 88, 100, 0.44);
+    backdrop-filter: blur(10px);
+    z-index: 2;
+    cursor: url("../../../public/img/pointer.svg"), auto;
+  }
+
+  &__rectangle-count {
+    border: 1px solid #4D4D4D;
+    border-radius: 10px;
+    padding: 7px 15px 15px 7px;
+    font-size: 10px;
+    position: absolute;
+    right: -8px;
+    bottom: -10px;
+    color: white;
+    background-color: #262626;
+  }
+
+  &__image {
+    object-fit: cover;
+    object-position: center;
+    max-height: 210px;
+  }
+
+
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    padding: 10px;
+
+    &__rectangle-count{
+      font-size: 8px;
+      padding: 5px 12px 12px 5px;
+    }
+  }
+
+}
+.dragging {
+  cursor: hand !important; /* Устанавливает курсор перемещения */
+}
+.drag-element{
+  border-radius: 20px;
+  border: 1px solid #4D4D4D;
+  position: absolute;
+  top: -1000px;
+  left: -1000px;
+  z-index: 100;
+  overflow: hidden;
+  background-color: #262626;
+  transform: translate(-50%,-50%);
+  cursor: url("../../../public/img/hand.svg"), auto !important;
+  &__rectangle {
+    height: 60%;
+    max-width: 50%;
+    min-width: 40%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-55%, -45%);
+    z-index: 1;
+  }
+
+  &__rectangle--glass {
+    height: 60%;
+    max-width: 50%;
+    min-width: 40%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-45%, -55%);
+    background-color: rgba(56, 88, 100, 0.44);
+    backdrop-filter: blur(10px);
+    z-index: 2;
+  }
+}
