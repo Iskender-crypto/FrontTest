@@ -1,3 +1,4 @@
+
 .card {
   border-radius: 12px;
   background-color: #262626;
@@ -22,11 +23,10 @@
     cursor: auto ;
     &:hover {
       background-color: #4D4D4D;
-      cursor: move ;
     }
     &:active{
       opacity: 0;
-      cursor: pointer !important;
+      cursor: grabbing;
     }
   }
   &__rectangle {
@@ -76,20 +76,6 @@
 
 }
 
-@media screen and (max-width: 768px) {
-  .card {
-    padding: 10px;
-
-    &__rectangle-count{
-      font-size: 8px;
-      padding: 5px 12px 12px 5px;
-    }
-  }
-
-}
-.dragging {
-  cursor: hand !important; /* Устанавливает курсор перемещения */
-}
 .drag-element{
   border-radius: 20px;
   border: 1px solid #4D4D4D;
@@ -101,6 +87,10 @@
   background-color: #262626;
   transform: translate(-50%,-50%);
   cursor: url("../../../public/img/hand.svg"), auto !important;
+  pointer-events: auto !important;
+  &:active{
+    cursor: url("../../../public/img/hand.svg"), auto !important;
+  }
   &__rectangle {
     height: 60%;
     max-width: 50%;
@@ -123,5 +113,20 @@
     background-color: rgba(56, 88, 100, 0.44);
     backdrop-filter: blur(10px);
     z-index: 2;
+  }
+}
+@media screen and (max-width: 768px) {
+  .card {
+    padding: 10px;
+
+    &__rectangle-count{
+      font-size: 8px;
+      padding: 5px 12px 12px 5px;
+    }
+  }
+}
+@media screen and (max-width: 576px) {
+  .drag-element{
+    border-radius: 10px;
   }
 }

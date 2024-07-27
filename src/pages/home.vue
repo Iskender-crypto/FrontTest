@@ -18,6 +18,7 @@ const dragStart = (item: Item, e: any) => {
   if (item.positionId == 0) {
     e.preventDefault();
   } else {
+
     let index = listStore.items.findIndex((el) => el.id == item.id);
     dragElement.value.style.opacity = '1';
     dragElement.value.style.height = `${e.target.offsetHeight}px`;
@@ -48,16 +49,25 @@ const dragOver = (item: Item, e: any) => {
 };
 const dragEnd = () => {
   let index = listStore.items.findIndex((el) => el.id == dragEndElement.value.id);
-  listStore.items[index] = { ...dragElementValue.value, id: dragEndElement.value.id, positionId: dragEndElement.value.id };
+  if (dragEndElement.value.positionId==0){
+    listStore.items[index] = { ...dragElementValue.value, id: dragEndElement.value.id, positionId: dragEndElement.value.id };
+  }else{
+    let changeElement = listStore.items[index]
+    listStore.items[listStore.items.findIndex((el) => el.id == dragElementValue.value.id)] = { ...dragElementValue.value };
+    listStore.items[index] = { ...dragElementValue.value };
+    listStore.items[listStore.items.findIndex((el) => el.id == dragElementValue.value.id)] = changeElement
+  }
+  for (let i = 0; i < elementsParent.value.children.length; i++) {
+    elementsParent.value.children[i].children[0].style.backgroundColor = 'transparent'
+  }
   dragElement.value.style.opacity = "0";
   dragElement.value.style.top = "-1500px";
   dragElement.value.style.left = "-1500px";
   dragElementValue.value = new Item({});
   dragEndElement.value = new Item({});
-  for (let i = 0; i < elementsParent.value.children.length; i++) {
-    elementsParent.value.children[i].children[0].style.backgroundColor = 'transparent'
-  }
   listStore.saveItems()
+
+
 };
 onMounted(()=>{
   listStore.initItems()
@@ -87,7 +97,7 @@ onMounted(()=>{
         </div>
       </div>
       <div class="col-12 md:col-9">
-        <div class="board h-18rem sm:h-26rem md:h-full w-full">
+        <div class="board h-18rem sm:h-30rem md:h-full w-full">
 
           <div class="line vertical-line vertical-line-1"></div>
           <div class="line vertical-line vertical-line-2"></div>
