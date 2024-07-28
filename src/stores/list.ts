@@ -3,7 +3,6 @@ import {ref} from "vue";
 import {Item} from "../models/Item.ts";
 import {useLocalStorageStore} from "./localStorage.ts";
 import {useDialogStore} from "./dialog.ts";
-
 export const useListStore = defineStore("list", () => {
     const localStorageStore = useLocalStorageStore()
     const dialogStore = useDialogStore()
@@ -72,14 +71,13 @@ export const useListStore = defineStore("list", () => {
     const items = ref<Item[]>([])
     const countRemovingItemRectangle = ref();
 
-    const initItems = () => {
+    const initItems =  () => {
         localStorageStore.setItems(defaultItems.value)
     }
     const getItems = () => {
         items.value = localStorageStore.getItems()
     }
     const deleteItemOfCount = (item: Item) => {
-        console.log(item)
         let index = items.value.findIndex(el => el.id == item.id)
         if (items.value[index].count - countRemovingItemRectangle.value > 0) {
             items.value[index].count -= countRemovingItemRectangle.value

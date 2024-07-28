@@ -18,7 +18,6 @@ const dragStart = (item: Item, e: any) => {
   if (item.positionId == 0) {
     e.preventDefault();
   } else {
-
     let index = listStore.items.findIndex((el) => el.id == item.id);
     dragElement.value.style.opacity = '1';
     dragElement.value.style.height = `${e.target.offsetHeight}px`;
@@ -70,7 +69,6 @@ const dragEnd = () => {
 
 };
 onMounted(()=>{
-  listStore.initItems()
   listStore.getItems()
 })
 
