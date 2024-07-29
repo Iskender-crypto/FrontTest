@@ -69,6 +69,7 @@ const dragEnd = () => {
 
 };
 onMounted(()=>{
+  listStore.getItems()
   let count = listStore.items.reduce((total,el)=>{
     return total + el.positionId;
   },0)
