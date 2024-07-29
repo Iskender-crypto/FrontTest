@@ -78,7 +78,7 @@ onMounted(()=>{
       status = false;
     }
   }
-  if (status){
+  if (!status){
     listStore.initItems();
   }
   listStore.getItems()
