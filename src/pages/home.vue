@@ -69,16 +69,10 @@ const dragEnd = () => {
 
 };
 onMounted(()=>{
-  let status = false;
-  for (let i = 0; i < listStore.defaultItems.length; i++) {
-    if(listStore.items[i].color!==''){
-      status = true;
-      break;
-    }else{
-      status = false;
-    }
-  }
-  if (!status){
+  let count = listStore.items.reduce((total,el)=>{
+    return total + el.positionId;
+  },0)
+  if (count == 0 ){
     listStore.initItems();
   }
   listStore.getItems()
