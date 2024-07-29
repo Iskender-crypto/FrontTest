@@ -69,6 +69,18 @@ const dragEnd = () => {
 
 };
 onMounted(()=>{
+  let status = false;
+  for (let i = 0; i < listStore.defaultItems.length; i++) {
+    if(listStore.defaultItems[i].color!==''){
+      status = true;
+      break;
+    }else{
+      status = false;
+    }
+  }
+  if (status){
+    listStore.initItems();
+  }
   listStore.getItems()
 })
 
